@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Promosi SMK BINA INFORMATIKA</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #e0f2f1);
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #005792;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .header-title {
+      font-size: 2.5em;
+      animation: fadeInDown 2s ease-in-out;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .marquee {
+      background: #ffcc00;
+      color: #000;
+      font-weight: bold;
+      padding: 10px 0;
+      overflow: hidden;
+    }
+
+    .marquee span {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marquee 15s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .content {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .content h2 {
+      color: #005792;
+      margin-top: 30px;
+    }
+
+    ul {
+      list-style: square;
+      margin-left: 20px;
+    }
+
+    .keunggulan {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .card {
+      background: #eaf4fc;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    button {
+      padding: 12px 25px;
+      background: #007bff;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    button:hover {
+      background: #0056b3;
+      transform: scale(1.05);
+    }
+
+    .accordion {
+      background: #f1f1f1;
+      color: #333;
+      cursor: pointer;
+      padding: 15px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 16px;
+      transition: background 0.3s ease;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    .accordion:hover {
+      background: #ddd;
+    }
+
+    .panel {
+      padding: 0 15px;
+      display: none;
+      background-color: white;
+      overflow: hidden;
+      border-left: 2px solid #005792;
+      border-right: 2px solid #005792;
+      border-bottom: 2px solid #005792;
+      border-radius: 0 0 5px 5px;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #e0e0e0;
+      margin-top: 40px;
+      font-size: 0.9em;
+    }
+
+    a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(4px);
+      background: rgba(0,0,0,0.3);
+      z-index: 999;
+    }
+
+    #struk {
+      display: none;
+      position: fixed;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%) scale(0.8);
+      background: #fff;
+      padding: 20px;
+      border: 2px solid #25D366;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+
+    #struk.active {
+      display: block;
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+
+    #overlay.active {
+      display: block;
+    }
+
+    form label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    form input, form select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form button[type="submit"] {
+      margin-top: 15px;
+    }
+
+    .banner-promo {
+      margin-top: 15px;
+    }
+
+    .banner-promo img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-title">Selamat Datang di SMK BINA INFORMATIKA</div>
+    <p>Alamat: Jl. Re. Abdullah No.16 RT.02/RW.01, Pasir Jaya, Bogor Barat</p>
+    <img src="logo.jpg" alt="Logo Sekolah" width="150">
+    <p>Contact Person: +62 896-1735-4862</p>
+    <p>Email: <a href="mailto:smkbifor@gmail.com" target="_blank">smkbifor@gmail.com</a></p>
+    <p>Instagram: @smkbinainformatika</p>
+    <div class="banner-promo">
+      <img src="free-dsp-banner.jpg" alt="Promo Free DSP untuk 100 Pendaftar Pertama">
+    </div>
+  </header>
+
+  <div class="marquee">
+    <span>Pendaftaran Tahun Ajaran Baru Telah Dibuka! Diskon hingga 50% bagi 50 pendaftar pertama!</span>
+  </div>
+
+  <div class="content">
+    <h2>Ekstrakurikuler</h2>
+    <ul>
+      <li>PMR</li>
+      <li>Rohis</li>
+      <li>Bahasa German</li>
+      <li>Paskibra</li>
+      <li>Pramuka</li>
+      <li>Tari</li>
+      <li>Dance</li>
+      <li>BKC</li>
+      <li>Futsal</li>
+    </ul>
+
+    <h2>Jurusan yang Tersedia</h2>
+    <button class="accordion">MM (Multimedia)</button>
+    <div class="panel"><p>Mempelajari desain grafis, animasi, editing video, fotografi, serta produksi media digital.</p></div>
+
+    <button class="accordion">RPL (Rekayasa Perangkat Lunak)</button>
+    <div class="panel"><p>Fokus pada pembuatan aplikasi, pengembangan software, dan pemrograman.</p></div>
+
+    <button class="accordion">TKJ (Teknik Komputer dan Jaringan)</button>
+    <div class="panel"><p>Perakitan komputer, instalasi jaringan, konfigurasi server, dan sistem jaringan.</p></div>
+
+    <button class="accordion">OTKP (Otomatisasi dan Tata Kelola Perkantoran)</button>
+    <div class="panel"><p>Administrasi modern, pengelolaan dokumen, dan teknologi perkantoran.</p></div>
+
+    <button class="accordion">PKM (Perbankan dan Keuangan Makro)</button>
+    <div class="panel"><p>Perbankan, keuangan, akuntansi, investasi, dan ekonomi makro.</p></div>
+
+    <h2>Kenapa Harus Memilih SMK BINA INFORMATIKA?</h2>
+    <div class="keunggulan">
+      <div class="card">✅ Jurusan Unggulan dan Terakreditasi</div>
+      <div class="card">✅ Fasilitas Lengkap dan Modern</div>
+      <div class="card">✅ Guru Berpengalaman dan Profesional</div>
+      <div class="card">✅ Magang dan Kerja Sama Dunia Industri</div>
+      <div class="card">✅ Ekstrakurikuler Beragam dan Berprestasi</div>
+      <div class="card">✅ Lulusan Siap Kerja atau Kuliah</div>
+    </div>
+
+    <h2>Waktu Pendaftaran</h2>
+    <p>Pukul 09:00 - 15:00, Hari Senin - Sabtu</p>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="https://wa.me/6289617354862?text=Halo%20SMK%20BINA%20INFORMATIKA,%20saya%20ingin%20mendaftar%20sebagai%20calon%20siswa." target="_blank" onclick="showStruk()">
+        <button style="background: #25D366;">Daftar Sekarang via WhatsApp</button>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 M.Hamdan.A XI RPL
+  </footer>
+
+  <div id="overlay"></div>
+  <div id="struk">Terima kasih telah mendaftar! Kami akan menghubungi Anda segera.</div>
+
+  <script>
+    const acc = document.querySelectorAll(".accordion");
+    acc.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        this.classList.toggle("active");
+        const panel = this.nextElementSibling;
+        panel.style.display = panel.style.display === "block" ? "none" : "block";
+      });
+    });
+
+    function showStruk() {
+      document.getElementById('overlay').classList.add('active');
+      const struk = document.getElementById('struk');
+      struk.classList.add('active');
+      setTimeout(() => {
+        struk.classList.remove('active');
+        document.getElementById('overlay').classList.remove('active');
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
